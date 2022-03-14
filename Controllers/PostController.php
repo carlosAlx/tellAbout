@@ -4,16 +4,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        $data = array();
-        $p = new Post();
-        $c = new Comment();
-        $data['comment'] = $c->getCommnet();
-        $data['viewComment'] = 'comment';
-      //  $data['postlast'] = $p->getListLastPost();
-        $this->loadTemplate('post', $data);
-    }
-    public function list()
-    {
         $offset = 0;
         $limit = 6;
         $currentPage = 1;
@@ -27,14 +17,33 @@ class PostController extends Controller
         }
         $offset = ($currentPage * $limit) - $limit;
 
-        $data['comment'] = $c->getCommnet();
-        $data['viewComment'] = 'comment';
         $data['post'] = $p->getListPost($offset, $limit);
         $data['totalPost'] = $p->getTotal();
         $data['numberOfPage'] = ceil($data['totalPost'] / $limit);
         $data['currentPage'] = $currentPage;
         $this->loadTemplate('listPost', $data);
     }
+
+    public function id($id)
+    {
+        $data = array();
+        $p = new Post();
+        $c = new Comment();
+        if (isset($_POST['comment']) and !empty($_POST['comment'])) {
+            $text = addslashes($_POST['comment']);
+            $id_usu = 1;// $_SESSION['IdOfUser'];
+            $c->addComment($text, $id_usu, $id);
+        }
+        $data['comment'] = $c->getCommnet($id);
+        $data['viewComment'] = 'comment';
+        $data['postId'] = $p->getListPostByID($id);
+        if ($p->getListPostByID($id)) {
+            $this->loadTemplate('post', $data);
+        } else {
+            header("Location:" . BASE_URL . 'post');
+        }
+    }
+
 
     public function newPost()
     {
@@ -117,7 +126,7 @@ class PostController extends Controller
             imagejpeg($image_p, $dir . $new_image);
         }
     }
-    public function comment()
+    public function comment($id)
     {
         $data = array();
         $c = new Comment();

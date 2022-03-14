@@ -40,7 +40,7 @@ class Core
         $currentController = ucfirst($currentController);
 
         if (
-            !file_exists('Controllers/' . $currentController . '.php')// ||  !method_exists('Controllers/' . $currentController, $currentAction)
+            !file_exists('Controllers/' . $currentController . '.php') ||  !method_exists('Controllers/' . $currentController, $currentAction) //or (!isset($params))
         ) {
             $currentController = 'NotfoundController';
             $currentAction = 'index';

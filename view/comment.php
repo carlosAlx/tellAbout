@@ -5,8 +5,20 @@
     <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
 </a>
 
-<?php foreach ($comment as $keyComment) : ?>
+
 <div id="collapseOne" class="accordion-collapse collapse py-1" aria-labelledby="headingOne">
+    <div class="accordion-body text-sm py-0">
+        <div class="mb-4">
+            <form method="POST">
+                <label>Comentario</label>
+                <div class="input-group">
+                    <input type="text" name="comment" class="form-control" placeholder="adicionar comentario" required>
+                </div>
+                <button class="btn" type="submit" >Adicionar</button>
+            </form>
+        </div>
+    </div>
+<?php foreach ($comment as $keyComment) : ?>
 
     <div class="card card-body py-2">
         <div class="accordion-body text-sm py-0">
@@ -15,7 +27,7 @@
                 <img src="<?php echo BASE_URL . 'media/image/' . $keyComment['picture'] ?>" alt="..."
                     class="avatar shadow">
                 <div class="name ps-3">
-                    <span>Mathew Glock</span>
+                    <span> <?php echo $keyComment['name'] ?></span>
                     <div class="stats">
                         <small>Posted on 28 Feb</small>
                     </div>
@@ -28,7 +40,8 @@
             <!-- end foto do perfil -->
         </div>
     </div>
+    <?php endforeach ?>
 </div>
 
-<?php endforeach ?>
+
 

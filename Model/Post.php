@@ -38,7 +38,9 @@ class Post extends Model
     {
 
         $array =  array();
-        $sql = "SELECT *FROM post WHERE id = :id";
+        $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
+        FROM post INNER JOIN user
+        on post.id_author = user.id WHERE post.id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);
         $sql->execute();

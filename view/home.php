@@ -13,7 +13,7 @@
         <div class="col-lg-4 col-8 py-2">
           <div class="card card-profile overflow-hidden">
               <div class="card-body text-center bg-white shadow border-radius-lg p-3">
-                <a href="javascript:;">
+                <a href="<?php echo BASE_URL . 'post/id/' . $keypost['id']?>">
                   <img class="w-100 border-radius-md" src="<?php echo BASE_URL ?>assets/img/anastasia.jpg">
                 </a>
                 <h5 class="mt-3 mb-1 d-md-block d-none"><?= $keypost['title'] ?></h5>              
@@ -23,8 +23,7 @@
         </div>
       <?php endforeach ?>
       <!-- end list-->
-      </div>    
-      
+      </div>     
     </div>
   </section>
   <!-- END Section with four info areas left & one card right with image and waves -->

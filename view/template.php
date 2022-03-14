@@ -50,12 +50,6 @@
             Entrar/Cadastrar
           </a>
         </li>
-
-        <li class="nav-item px-3" >
-          <a class="nav-link" href="<?php echo BASE_URL?>post/list/">
-            List  post
-          </a>
-        </li>
       </ul>
       <!-- Dropdown of perfil -->
       <?php if (isset($_SESSION['IdOfUser']) and !empty($_SESSION['IdOfUser'])) : ?>
