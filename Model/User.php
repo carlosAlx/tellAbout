@@ -4,7 +4,7 @@ class User extends model
 {
     public function save($name, $email, $biography, $picture, $password)
     {
-        $sql = "INSERT INTO user SET name= :name, email = :email, biography = :biography, picture = :picture, password = :password";
+        $sql = "INSERT INTO user SET name = :name, email = :email, biography = :biography, picture = :picture, password = :password";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":name", $name);
         $sql->bindValue(":email", $email);
