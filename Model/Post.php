@@ -18,7 +18,7 @@ class Post extends Model
         $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
         FROM post INNER JOIN user
         WHERE post.id_author = user.id LIMIT $offset, $limit";
-      //  $sql->bindValue(":limit", $limit);
+        //$sql->bindValue(":limit", $limit);
         $sql = $this->db->query($sql);
         $array = $sql->fetchAll();
         return $array;

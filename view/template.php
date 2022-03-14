@@ -23,9 +23,9 @@
 
 <body class="about-us">
   <!-- Navbar  -->
-  <nav class="navbar navbar-expand-lg  position-fixed blur blur-rounded top-0 border-bottom z-index-3 shadow w-100 mt-4 d-none d-lg-block my-3 py-2">
+  <nav class="navbar navbar-expand-lg  position-fixed blur border-bottom z-index-3 shadow w-100 mt-1 d-none d-lg-block my-3 py-2">
   <div class="container-fluid">
-    <a class="navbar-brand font-weight-bolder ms-3" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand font-weight-bolder ms-3" href="<?= BASE_URL ?>"  data-placement="bottom">
       TellAbout
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,13 +35,13 @@
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
           <a class="nav-link" href="<?php echo BASE_URL?>">
-            home
+            Home
           </a>
         </li>
 
         <li class="nav-item px-3">
           <a class="nav-link" href="<?php echo BASE_URL?>post/">
-            post
+            Post
           </a>
         </li>
 
@@ -80,7 +80,6 @@
   </div>
 </nav>
 
-
 </div>
   <!-- End Navbar -->
   <!-- -------- START HEADER 7 w/ text and video ------- -->
@@ -91,7 +90,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">Post fotos</h1>
-            <p class="lead mb-4 text-white opacity-8">compartilhe cada os melhores momentos da sua vida.</p>
+            <p class="lead mb-4 text-white opacity-8">Compartilhe cada os melhores momentos da sua vida.</p>
             <button type="submit" class="btn bg-white text-dark">Create Account</button>
             <h6 class="text-white mb-2 mt-5">rede social</h6>
             <div class="d-flex justify-content-center">
@@ -162,78 +161,24 @@
               </li>
             </ul>
           </div>
-        </div>
+      </div>
         <div class="col-md-2 col-sm-6 col-6 mb-4">
           <div>
-            <h6 class="text-gradient text-primary text-sm">Company</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/presentation" target="_blank">
-                  About Us
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/templates/free" target="_blank">
-                  Freebies
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/templates/premium" target="_blank">
-                  Premium Tools
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/blog" target="_blank">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-6 mb-4">
-          <div>
-            <h6 class="text-gradient text-primary text-sm">Resources</h6>
+            <h6 class="text-gradient text-primary text-sm">Navegação</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
                 <a class="nav-link" href="" target="_blank">
-                  Illustrations
+                  Home
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="" target="_blank">
-                  Bits & Snippets
+                  Post
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="" target="_blank">
-                  Affiliate Program
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-6 mb-4">
-          <div>
-            <h6 class="text-gradient text-primary text-sm">Help & Support</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href=" target="_blank">
-                  Contact Us
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
-                  Knowledge Center
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
-                  Custom Development
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
-                  Sponsorships
+                  Cadastro
                 </a>
               </li>
             </ul>

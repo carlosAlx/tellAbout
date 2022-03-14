@@ -19,10 +19,9 @@ class HomeController extends Controller
     }
     public function exit()
     {
-
         $data = array();
         $p = new Post();
-        $data['post'] = $p->getListPost();
+      //  $data['post'] = $p->getListPost();
         unset($_SESSION['IdOfUser']);
         header("Location:" . BASE_URL);
     }

@@ -39,5 +39,4 @@
         </div>
     </div>
     <!-- END card -->
-
 </div>
