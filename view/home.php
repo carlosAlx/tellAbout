@@ -45,94 +45,34 @@
       <div class="row">
         <div class="col-md-8 text-start mb-5 mt-5">
           <h3 class="text-white z-index-1 position-relative">Membros</h3>
-          <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 col-12">
-          <div class="card card-profile overflow-hidden">
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-12 pe-lg-0">
-                <a href="javascript:;">
-                  <div class="p-3 pe-md-0">
-                    <img class="w-100 border-radius-md" src="<?php echo BASE_URL ?>assets/img/kal-visuals-square.jpg" alt="image">
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
-                <div class="card-body">
-                  <h5 class="mb-0">Emma Roberts</h5>
-                  <h6 class="text-info">UI Designer</h6>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card card-profile mt-lg-0 mt-5 overflow-hidden">
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-12 pe-lg-0">
-                <a href="javascript:;">
-                  <div class="p-3 pe-md-0">
-                    <img class="w-100 border-radius-md" src="<?php echo BASE_URL ?>assets/img/bruce-mars.jpg" alt="image">
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
-                <div class="card-body">
-                  <h5 class="mb-0">William Pearce</h5>
-                  <h6 class="text-info">Boss</h6>
-                  <p>Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-lg-6 col-12">
+      <?php foreach ($userList as $keyUser) : ?>
+        <div class="col-lg-6 col-12 py-2">
           <div class="card card-profile overflow-hidden z-index-2">
             <div class="row">
               <div class="col-lg-4 col-md-6 col-12 pe-lg-0">
                 <a href="javascript:;">
                   <div class="p-3 pe-md-0">
-                    <img class="w-100 border-radius-md" src="<?php echo BASE_URL ?>assets/img/team-4.jpg" alt="image">
+                    <img class="w-100 border-radius-md" src="<?php echo BASE_URL .'media/image/' . $keyUser['picture']?>" alt="image">
                   </div>
                 </a>
               </div>
               <div class="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
                 <div class="card-body">
-                  <h5 class="mb-0">Ivana Flow</h5>
-                  <h6 class="text-info">Athlete</h6>
-                  <p>Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                  <h5 class="mb-0"><?= $keyUser['name'] ?></h5>
+                  <p><?= $keyUser['biography'] ?></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12">
-          <div class="card card-profile mt-lg-0 mt-5 overflow-hidden z-index-2">
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-12 pe-lg-0">
-                <a href="javascript:;">
-                  <div class="p-3 pe-md-0">
-                    <img class="w-100 border-radius-md" src="<?php echo BASE_URL ?>assets/img/ivana-square.jpg" alt="image">
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-8 col-md-6 col-12 ps-lg-0 my-auto">
-                <div class="card-body">
-                  <h5 class="mb-0">Sophia Garcia</h5>
-                  <h6 class="text-info">JS Developer</h6>
-                  <p>Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
+
+
     <div class="position-absolute w-100 bottom-0 mn-n1">
       <svg width="100%" viewBox="0 -1 1920 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <title>wave-up</title>

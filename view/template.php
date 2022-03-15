@@ -61,6 +61,7 @@
             </a>             
         </button>
             <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/userNew">Meu perfil</a></li>
               <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/myPost">Meus post</a></li>
               <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>post/newPost">Criar post</a></li>
               <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/update">Editar Perfil</a></li>

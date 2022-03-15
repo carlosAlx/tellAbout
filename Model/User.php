@@ -29,16 +29,23 @@ class User extends model
         }
         return $array;
     }
-    public function getList($id)
+    public function getAllUser()
     {
         $array = array();
-        $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
-        FROM post INNER JOIN user
-        WHERE post.id_author = :id  LIMIT 6";
+        $sql = "SELECT *FROM user limit 4";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+        $array = $sql->fetchAll();
+        return $array;
+    }
+    public function getList($id, $offset, $limit)
+    {
+        $array = array(); 
+        $sql = "SELECT * FROM post WHERE user_id = :id LIMIT $offset, $limit";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);
         $sql->execute();
-        $array['post'] = $sql->fetchAll();
+        $array = $sql->fetchAll();
         return $array;
     }
     public function isLogged($email, $password)
@@ -75,5 +82,12 @@ class User extends model
             $array = $sql->fetch();
         }
         return $array;
+    }
+    public function getTotal()
+    {
+        $sql  = "SELECT COUNT(*) as c FROM user";
+        $sql = $this->db->query($sql);
+        $sql = $sql->fetch();
+        return $sql['c'];
     }
 }

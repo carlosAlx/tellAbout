@@ -49,7 +49,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h3 class="mb-5">Post od usuario</h3>
+          <h3 class="mb-5">Post do usuario</h3>
         </div>
       </div>
      

@@ -12,7 +12,7 @@
               <div class="card-body text-center bg-white shadow border-radius-lg p-3">
                 <a href="<?= BASE_URL . 'post/id/' . $keypost['id']?>">
                     <h5 class="mb-1 d-md-block d-none"><?= $keypost['title'] ?></h5>
-                  <img class="w-100 border-radius-md" src="<?php echo BASE_URL . 'assets/img/' . $keypost['image']?>">
+                  <img class="w-100 border-radius-md" src="<?php echo BASE_URL . 'media/image/' . $keypost['image']?>">
                 </a>
               </div>
           </div>

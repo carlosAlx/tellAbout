@@ -10,7 +10,6 @@ class PostController extends Controller
         $data = array();
 
         $p = new Post();
-        $c = new Comment();
 
         if (!empty($_GET['p'])) {
             $currentPage = $_GET['p'];
@@ -31,7 +30,7 @@ class PostController extends Controller
         $c = new Comment();
         if (isset($_POST['comment']) and !empty($_POST['comment'])) {
             $text = addslashes($_POST['comment']);
-            $id_usu = 1;// $_SESSION['IdOfUser'];
+            $id_usu = $_SESSION['IdOfUser'];
             $c->addComment($text, $id_usu, $id);
         }
         $data['comment'] = $c->getCommnet($id);
@@ -50,13 +49,12 @@ class PostController extends Controller
         $data = array();
         if (isset($_POST['title'])) {
             $title = addslashes($_POST['title']);
-            $author = addslashes($_POST['author']);
+            $user =  $_SESSION['IdOfUser'] ;
             $text = addslashes($_POST['text']);
             $image = ($_FILES['image']);
             $this->resizeUploadImage($image);
             $p = new Post();
-            $p->register($author, $title, $image['name'], $text);
-            $data['erro'] = 'deu certo';
+            $p->register($user, $title, $image['name'], $text);
         }
         $this->loadTemplate('newPost', $data);
     }
@@ -125,18 +123,5 @@ class PostController extends Controller
             // Salvando a imagem em arquivo:
             imagejpeg($image_p, $dir . $new_image);
         }
-    }
-    public function comment($id)
-    {
-        $data = array();
-        $c = new Comment();
-        $data = $c->getCommnet();
-        $this->loadView('comment', $data);
-    }
-    public function deletComment()
-    {
-    }
-    public function addComment()
-    {
     }
 }

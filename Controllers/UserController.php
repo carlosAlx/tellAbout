@@ -5,8 +5,8 @@ class UserController extends Controller
     public function index()
     {
         $data = array();
-        $p = new Post();
-        $data['userPost'] = $p->getListPost();
+        $u = new User();
+       // $data['userPost'] = $u->getUserById($id);
         //$this->loadTemplate('post', $data);
         $this->loadTemplate('userView', $data);
     }
@@ -69,10 +69,23 @@ class UserController extends Controller
     }
     public function myPost()
     {
+        $offset = 0;
+        $limit = 6;
+        $currentPage = 1;
         $data = array();
         $id = $_SESSION['IdOfUser'];
+
         $a = new User();
-        $data = $a->getList($id);
+
+        if (!empty($_GET['p'])) {
+            $currentPage = $_GET['p'];
+        }
+        $offset = ($currentPage * $limit) - $limit;
+
+        $data['post'] = $a->getList($id, $offset, $limit);
+        $data['totalPost'] = $a->getTotal();
+        $data['numberOfPage'] = ceil($data['totalPost'] / $limit);
+        $data['currentPage'] = $currentPage;
         $this->loadTemplate('meusPost', $data);
     }
     public function login()

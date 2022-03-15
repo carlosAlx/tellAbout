@@ -2,12 +2,12 @@
 
 class Post extends Model
 {
-    public function register($author, $title, $image, $text)
+    public function register($user, $title, $image, $text)
     {
-        $sql = "INSERT INTO post SET title = :title, image = :image, text = :text, author = :author";
+        $sql = "INSERT INTO post SET title = :title, image = :image, text = :text, user_id = :user";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":title", $title);
-        $sql->bindValue(":author", $author);
+        $sql->bindValue(":user", $user);
         $sql->bindValue(":text", $text);
         $sql->bindValue(":image", $image);
         $sql->execute();
@@ -17,7 +17,7 @@ class Post extends Model
         $array = array();
         $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
         FROM post INNER JOIN user
-        WHERE post.id_author = user.id LIMIT $offset, $limit";
+        WHERE post.user_id = user.id LIMIT $offset, $limit";
         //$sql->bindValue(":limit", $limit);
         $sql = $this->db->query($sql);
         $array = $sql->fetchAll();
@@ -40,7 +40,7 @@ class Post extends Model
         $array =  array();
         $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
         FROM post INNER JOIN user
-        on post.id_author = user.id WHERE post.id = :id";
+        on post.user_id = user.id WHERE post.id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);
         $sql->execute();
@@ -54,7 +54,7 @@ class Post extends Model
         $array = array();
         $sql = "SELECT post.title, post.image, post.text, user.name, post.date, user.picture, post.id
         FROM post INNER JOIN user
-        WHERE post.id_author = user.id ORDER BY post.date DESC LIMIT 6";
+        WHERE post.user_id = user.id ORDER BY post.date DESC LIMIT 6";
         $sql = $this->db->prepare($sql);
         $sql->execute();
         $array = $sql->fetchAll();

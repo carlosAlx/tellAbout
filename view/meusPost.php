@@ -19,4 +19,27 @@
     <?php endforeach ?>
     <!-- end list-->
   </div>
+      <!--start paginação-->
+  
+      <nav aria-label="Page navigation">
+        <ul class="pagination pagination-lg">
+            <li class="page-item">
+                <a class="page-link" href="<?php echo BASE_URL . 'user/myPost/?p=' . ($currentPage - 1) ?>" aria-label="Previous">
+                    <i class="fa fa-angle-left"></i>
+                    <span class="sr-only">Previous</span>
+                </a>           
+            </li>
+            <?php for ($q = 1; $q <= $numberOfPage; $q++) : ?>
+                <li class="page-item <?php echo ($currentPage == $q) ? 'active' : ''; ?>"><a class="page-link" href="<?php echo BASE_URL . 'user/myPost/?p=' . $q ?>"><?php echo $q ?></a></li>
+            <?php endfor ?>
+            <li class="page-item">
+                <a class="page-link" href="<?php echo BASE_URL . 'user/myPost/?p=' . ($currentPage + 1) ?>" aria-label="Next">
+                    <i class="fa fa-angle-right"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <!-- end paginação -->
 </div>

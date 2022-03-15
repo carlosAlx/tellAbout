@@ -13,15 +13,13 @@ class HomeController extends Controller
 
         $data = array();
         $p = new Post();
+        $u = new User();
         $data['postLast'] = $p->getListLastPost();
-       // $data['post'] = $p->getListPost();
+        $data['userList'] = $u->getAllUser();
         $this->loadTemplate('home', $data);
     }
     public function exit()
     {
-        $data = array();
-        $p = new Post();
-      //  $data['post'] = $p->getListPost();
         unset($_SESSION['IdOfUser']);
         header("Location:" . BASE_URL);
     }
