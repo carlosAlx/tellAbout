@@ -19,7 +19,7 @@ class Comment extends Model
         $sql = "INSERT INTO comment SET user_id = :id_usu, post_id = :id_post, text = :text";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":text", $text);
-        $sql->bindValue(":id_usu", 1);
+        $sql->bindValue(":id_usu", $id_usu);
         $sql->bindValue(":id_post", $id_post);
         $sql->execute();
     }

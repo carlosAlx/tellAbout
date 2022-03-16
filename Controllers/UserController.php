@@ -6,7 +6,9 @@ class UserController extends Controller
     {
         $data = array();
         $u = new User();
-       // $data['userPost'] = $u->getUserById($id);
+        $id = $_SESSION['IdOfUser'];        
+        $data['totalPost'] = $u->getTotalPost($id);
+        // $data['userPost'] = $u->getUserById($id);
         //$this->loadTemplate('post', $data);
         $this->loadTemplate('userView', $data);
     }

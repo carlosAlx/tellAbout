@@ -5,10 +5,11 @@
     <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
 </a>
 
-
 <div id="collapseOne" class="accordion-collapse collapse py-1" aria-labelledby="headingOne">
     <div class="accordion-body text-sm py-0">
         <div class="mb-4">
+            <!-- Se o usuario não estiver logado não exibira o botão de adicionar-->
+            <?php if (!empty($_SESSION['IdOfUser'])) : ?>
             <form method="POST">
                 <label>Comentario</label>
                 <div class="input-group">
@@ -16,10 +17,11 @@
                 </div>
                 <button class="btn" type="submit" >Adicionar</button>
             </form>
+            <?php endif; ?>
+            <!-- -->
         </div>
     </div>
 <?php foreach ($comment as $keyComment) : ?>
-
     <div class="card card-body py-2">
         <div class="accordion-body text-sm py-0">
             <!-- start foto do perfil -->
@@ -40,7 +42,7 @@
             <!-- end foto do perfil -->
         </div>
     </div>
-    <?php endforeach ?>
+<?php endforeach ?>
 </div>
 
 

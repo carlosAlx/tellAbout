@@ -59,6 +59,9 @@ class User extends model
         if ($sql->rowCount() == 1) {
             $array = $sql->fetch();
             $_SESSION['IdOfUser'] = $array['id'];
+            $_SESSION['NameUser'] = $array['name'];
+            $_SESSION['ImgUser'] = $array['picture'];
+            $_SESSION['BioUser'] = $array['biography'];
         } else {
             $array['erro'] = 'Senha ou Email incorretos';
         }
@@ -89,5 +92,13 @@ class User extends model
         $sql = $this->db->query($sql);
         $sql = $sql->fetch();
         return $sql['c'];
+    }
+    public function getTotalPost($id)
+    {
+        $sql  = "SELECT COUNT(*) as cp FROM post WHERE user_id = $id";
+        $sql = $this->db->query($sql);
+        $sql->bindValue(":id", $id);
+        $sql = $sql->fetch();
+        return $sql['cp'];
     }
 }

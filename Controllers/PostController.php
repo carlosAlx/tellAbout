@@ -28,7 +28,7 @@ class PostController extends Controller
         $data = array();
         $p = new Post();
         $c = new Comment();
-        if (isset($_POST['comment']) and !empty($_POST['comment'])) {
+        if (isset($_POST['comment']) and !empty($_POST['comment']) and !empty($_SESSION['IdOfUser'])) {
             $text = addslashes($_POST['comment']);
             $id_usu = $_SESSION['IdOfUser'];
             $c->addComment($text, $id_usu, $id);
