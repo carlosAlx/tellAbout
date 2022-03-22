@@ -61,9 +61,9 @@
             </a>             
         </button>
             <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/userNew">Meu perfil</a></li>
-              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/myPost">Meus post</a></li>
-              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>post/newPost">Criar post</a></li>
+              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/perfil">Meu perfil</a></li>
+              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/post">Meus post</a></li>
+              <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>post/new">Criar post</a></li>
               <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>user/update">Editar Perfil</a></li>
               <li><a class="dropdown-item border-radius-md" href="<?php echo BASE_URL?>/home/exit">Sair</a></li>
             </ul>
@@ -86,7 +86,7 @@
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1 class="text-white">Post fotos</h1>
             <p class="lead mb-4 text-white opacity-8">Compartilhe cada os melhores momentos da sua vida.</p>
-            <button type="submit" class="btn bg-white text-dark">Create Account</button>
+            <button class="btn bg-white text-dark"><a href="<?php echo BASE_URL . 'user/new' ?>">Create Account</a></button>
             <h6 class="text-white mb-2 mt-5">rede social</h6>
             <div class="d-flex justify-content-center">
               <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>

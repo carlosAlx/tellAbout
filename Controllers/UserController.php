@@ -10,7 +10,7 @@ class UserController extends Controller
         $data['totalPost'] = $u->getTotalPost($id);
         // $data['userPost'] = $u->getUserById($id);
         //$this->loadTemplate('post', $data);
-        $this->loadTemplate('userView', $data);
+        $this->loadTemplate('user-perfil-view', $data);
     }
     public function new()
     {
@@ -32,7 +32,7 @@ class UserController extends Controller
                 $password
             );
         }
-        $this->loadTemplate('userNew', $data);
+        $this->loadTemplate('user-view', $data);
     }
 
     public function update()
@@ -44,12 +44,12 @@ class UserController extends Controller
             $name = addslashes($_POST['name']);
             $email = addslashes($_POST['email']);
             $biography = addslashes($_POST['biography']);
-            // verifica se alterei a imagem e se o arquivo existe mesmo
+            // verifica se alterou a imagem, e se o arquivo existe mesmo
             if ((isset($_POST['imageOld'])) and (!empty($_POST['imageOld']))) {
                 $image = addslashes($_POST['imageOld']);
                 if (!file_exists('media/image/' . $image)) {
                       $data['erro'] = 'Erro ao carregar imagem';
-                      $this->loadTemplate('userNew', $data);
+                      $this->loadTemplate('user-view', $data);
                       exit;
                 }
             // se houve alteração entao faz o processo normal de upload
@@ -67,9 +67,9 @@ class UserController extends Controller
                 $_SESSION['IdOfUser']
             );
         }
-        $this->loadTemplate('UserNew', $data);
+        $this->loadTemplate('user-view', $data);
     }
-    public function myPost()
+    public function post()
     {
         $offset = 0;
         $limit = 6;
@@ -88,7 +88,7 @@ class UserController extends Controller
         $data['totalPost'] = $a->getTotal();
         $data['numberOfPage'] = ceil($data['totalPost'] / $limit);
         $data['currentPage'] = $currentPage;
-        $this->loadTemplate('meusPost', $data);
+        $this->loadTemplate('user-post-view', $data);
     }
     public function login()
     {
@@ -102,7 +102,7 @@ class UserController extends Controller
                 header('Location: ' . BASE_URL);
             }
         }
-        $this->loadTemplate('login', $data);
+        $this->loadTemplate('login-view', $data);
     }
     public function resizeUploadImage($image)
     {

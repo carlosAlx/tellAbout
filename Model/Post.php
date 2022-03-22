@@ -2,7 +2,7 @@
 
 class Post extends Model
 {
-    public function register($user, $title, $image, $text)
+    public function save($user, $title, $image, $text)
     {
         $sql = "INSERT INTO post SET title = :title, image = :image, text = :text, user_id = :user";
         $sql = $this->db->prepare($sql);

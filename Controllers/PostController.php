@@ -20,7 +20,7 @@ class PostController extends Controller
         $data['totalPost'] = $p->getTotal();
         $data['numberOfPage'] = ceil($data['totalPost'] / $limit);
         $data['currentPage'] = $currentPage;
-        $this->loadTemplate('listPost', $data);
+        $this->loadTemplate('post-list-view', $data);
     }
 
     public function id($id)
@@ -37,14 +37,13 @@ class PostController extends Controller
         $data['viewComment'] = 'comment';
         $data['postId'] = $p->getListPostByID($id);
         if ($p->getListPostByID($id)) {
-            $this->loadTemplate('post', $data);
+            $this->loadTemplate('post-id-view', $data);
         } else {
             header("Location:" . BASE_URL . 'post');
         }
     }
 
-
-    public function newPost()
+    public function new()
     {
         $data = array();
         if (isset($_POST['title'])) {
@@ -54,9 +53,9 @@ class PostController extends Controller
             $image = ($_FILES['image']);
             $this->resizeUploadImage($image);
             $p = new Post();
-            $p->register($user, $title, $image['name'], $text);
+            $p->save($user, $title, $image['name'], $text);
         }
-        $this->loadTemplate('newPost', $data);
+        $this->loadTemplate('post-view', $data);
     }
     public function update($id)
     {
@@ -71,7 +70,7 @@ class PostController extends Controller
                 $image = addslashes($_POST['imageOld']);
                 if (!file_exists('media/image/' . $image)) {
                     $data['erro'] = 'Erro ao carregar imagem';
-                    $this->loadTemplate('newPost', $data);
+                    $this->loadTemplate('post-view', $data);
                     exit;
                 }
             // se houve alteração entao faz o processo normal de upload
@@ -82,9 +81,9 @@ class PostController extends Controller
             }
             $p = new Post();
             $data['erro'] = $p->update($title, $image, $text, $id);
-            header('Location:' . BASE_URL . 'user/myPost');
+            header('Location:' . BASE_URL . 'user/post');
         }
-        $this->loadTemplate('newPost', $data);
+        $this->loadTemplate('post-view', $data);
     }
     public function resizeUploadImage($image)
     {
